@@ -1,9 +1,12 @@
-const { readFile } = require('../readFile');
+const { readFileEdith } = require('../readFile');
 
 describe('read file with node.js', () => {
-    test('that results in the data',() => {
-        let readme= './mocks/readFile.md';
-        readFile(readme)
-        .then( datos => expect(datos).toBe('string') )
+    it('that results in the data', () => {
+        let readme = './README.md';
+        return readFileEdith(readme)
+            .then(datos => {
+                console.log(typeof(datos), "Hola Edith aqui debe salir el tipo de dato")
+                expect(typeof(datos)).toBe("string")
+            })
     })
 })
